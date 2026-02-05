@@ -1,30 +1,67 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Webmap Trial 001</title>
-
-        <!-- LEAFLET CSS - Style the map controls -->
-         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
-        <!-- Our future CSS file (We'll create this next) -->
-         <link rel="stylesheet" href="style.css">
-
-        <!-- Set the viewport for mobile devices -->
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <h1>Hallo, Redoy's Map!</h1>
-
-        <!-- This DIV is where Leaflet will put the map -->
-         <div id="map"></div>
-        
-        <!-- LEAFLET Javascript - The brains of the Map -->
-         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-        <!-- My own Javascript -->
-         <script src="script.js"></script>
 
 
-        <p>My map will be here soon!</p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaza Strip: Urban Damage Intensity</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <div id="loading">
+        <div class="spinner"></div>
+        <p>Processing Geospatial Data...</p>
+    </div>
+
+
+    <main class="map-wrapper">
+        <div id="map"></div>
+
+
+        <div class="overlay-top-left">
+            <header class="glass-panel">
+                <h1>Gaza Strip: Urban Damage Intensity</h1>
+                <p class="subtitle">From October 2023 to 29 February 2024</p>
+                <div class="status-badge"><span class="dot"></span> This web map tells the story of a homeless generation, illustrating the extent of structural damage across the Gaza Strip.</div>
+            </header>
+
+
+            <nav class="glass-panel governorate-nav">
+                <label>Navigate Regions</label>
+                <div class="btn-grid">
+                    <button class="nav-btn" data-governorate="north-gaza">N. Gaza</button>
+                    <button class="nav-btn" data-governorate="gaza">Gaza City</button>
+                    <button class="nav-btn" data-governorate="deir-al-balah">D. al Balah</button>
+                    <button class="nav-btn" data-governorate="khan-yunis">Khan Yunis</button>
+                    <button class="nav-btn" data-governorate="rafah">Rafah</button>
+                </div>
+                <button id="zoomOutBtn" class="reset-btn">
+                    <i class="fas fa-expand"></i> Overall View
+                </button>
+            </nav>
+        </div>
+
+        <div class="overlay-bottom-right">
+            <div class="glass-panel stats-card">
+                <div class="stat-row">
+                    <span>Overall Damage Points</span>
+                    <strong id="pointsCount">0</strong>
+                </div>
+                <div class="stat-row">
+                    <span>Region focus</span>
+                    <strong id="currentView">Full Strip</strong>
+                </div>
+                <div class="source-tag">Source: HDX / UNOSAT</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
